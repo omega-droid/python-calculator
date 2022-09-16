@@ -43,34 +43,6 @@ while enter_digits_and_OPERATOR != 'cal.py':
         # if the legnth of store digit and operator contains only one operator eithe - or +
         validate_operator(symbol=operator, arr=stores_digits_and_operator,
                           should_sign_num=want_two_operator, err=syntax_error)
-        # if len(stores_digits_and_operator) == 1 and operator in ('-', '+') and \
-        #         stores_digits_and_operator[0] in ('-', '+'):
-        #     stores_digits_and_operator = [operator]
-        # elif len(stores_digits_and_operator) == 1 and operator in ('/', '*') and \
-        #         stores_digits_and_operator[0] in ('-', '+'):
-        #     syntax_error()
-        # elif len(stores_digits_and_operator) == 0 and operator in ('-', '+'):
-        #     stores_digits_and_operator.append(operator)
-        # elif len(stores_digits_and_operator) == 0 and operator in ('/', '*'):
-        #     syntax_error()
-        # else:
-        #     if not want_two_operator:
-        #         if stores_digits_and_operator[len(stores_digits_and_operator) - 1] in ('-', '+', '*', '/'):
-        #             stores_digits_and_operator[len(stores_digits_and_operator) - 1] = operator
-        #         elif stores_digits_and_operator[len(stores_digits_and_operator) - 1] not in ('-', '+', '*', '/'):
-        #             stores_digits_and_operator.append(operator)
-        #     else:
-        #         if stores_digits_and_operator[len(stores_digits_and_operator) - 1] == '(':
-        #             if operator in ('+', '-'):
-        #                 stores_digits_and_operator.append(operator)
-        #             else:
-        #                 syntax_error()
-        #         elif operator in ('-', '+'):
-        #             if stores_digits_and_operator[len(stores_digits_and_operator) - 1] in ('-', '+'):
-        #                 stores_digits_and_operator[len(stores_digits_and_operator) - 1] = operator
-        #         elif operator in ('/', '*'):
-        #             syntax_error()
-
     else:
         try:
             is_it_integer = True
