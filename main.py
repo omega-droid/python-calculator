@@ -19,6 +19,7 @@ stores_digits_and_operator = []
 enter_digits_and_OPERATOR = input('enter digit or operator: ')
 want_two_operator = False
 validate_operator = check_operator
+print('hello')
 
 while enter_digits_and_OPERATOR != 'cal.py':
     if enter_digits_and_OPERATOR == 'b':
