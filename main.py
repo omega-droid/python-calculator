@@ -10,9 +10,11 @@ def syntax_error(message='invalid combination'):
 stores_digits_and_operator = []
 enter_digits_and_OPERATOR = input('enter digit or operator: ')
 want_two_operator = False
+
 validate_operator = check_operator
 validate_number = check_number
 validate_bracket = check_bracket
+
 while enter_digits_and_OPERATOR != 'cal.py':
     if enter_digits_and_OPERATOR == 'b':
         brackets = enter_digits_and_OPERATOR
@@ -22,6 +24,8 @@ while enter_digits_and_OPERATOR != 'cal.py':
         operator = enter_digits_and_OPERATOR
         validate_operator(symbol=operator, arr=stores_digits_and_operator,
                           should_sign_num=want_two_operator, err=syntax_error)
+        if want_two_operator:
+            want_two_operator = False
     else:
         try:
             is_it_integer = True
@@ -37,8 +41,10 @@ while enter_digits_and_OPERATOR != 'cal.py':
         except ValueError:
             syntax_error(message='please input valid operator or digit')
         else:
-            want_two_operator = validate_number(symbol=digit, arr=stores_digits_and_operator,
-                                                should_sign_num=want_two_operator, err=syntax_error,
-                                                data_type=is_it_integer)
+            validate_number(symbol=digit, arr=stores_digits_and_operator,
+                            err=syntax_error,
+                            data_type=is_it_integer)
+            if want_two_operator:
+                want_two_operator = False
     print(stores_digits_and_operator)
     enter_digits_and_OPERATOR = input('enter digit or operator: ')
