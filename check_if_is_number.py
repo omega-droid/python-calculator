@@ -1,4 +1,4 @@
-def check_number(symbol, arr, err, data_type):
+def check_number(symbol, arr, err, data_type, should_sign):
     def concatenate_number_as_int(is_integer):
         former_digit = arr[len(arr) - 1]
         del arr[len(arr) - 1]
@@ -13,12 +13,17 @@ def check_number(symbol, arr, err, data_type):
     # this is to check if a user input a negative number
     if change_to_string[:1] in ('-', '+', '/', '*'):
         err()
+        if should_sign:
+            return True
+        else:
+            return False
     else:
         if len(arr) == 1 and arr[0] in ('-', '+'):
             if arr[0] == '+':
-                arr[:] = ['(', '+', symbol]
+                arr[:] = ['(', symbol]
             else:
-                arr[:] = ['(', '-', symbol]
+                arr[:] = ['(', -symbol]
+            return False
         elif len(arr) == 0:
             arr.append(symbol)
         else:
@@ -32,4 +37,13 @@ def check_number(symbol, arr, err, data_type):
                     elif not data_type:
                         err()
             else:
-                arr.append(symbol)
+                if should_sign:
+                    if arr[len(arr) - 1] == '+':
+                        arr[len(arr) - 1] = symbol
+                    elif arr[len(arr) - 1] == '-':
+                        arr[len(arr) - 1] = -symbol
+                    else:
+                        arr.append(symbol)
+                    return False
+                else:
+                    arr.append(symbol)

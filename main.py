@@ -46,11 +46,10 @@ while enter_digits_and_OPERATOR != '':
         except ValueError:
             syntax_error(message='please input valid operator or digit')
         else:
-            validate_number(symbol=digit, arr=stores_digits_and_operator,
-                            err=syntax_error,
-                            data_type=is_it_integer)
-            if want_two_operator:
-                want_two_operator = False
+            want_two_operator = validate_number(symbol=digit, arr=stores_digits_and_operator,
+                                                err=syntax_error,
+                                                data_type=is_it_integer, should_sign=want_two_operator)
+
     print(stores_digits_and_operator)
     enter_digits_and_OPERATOR = input('enter digit or operator: ')
 
