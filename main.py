@@ -28,8 +28,6 @@ while enter_digits_and_OPERATOR != '':
         operator = enter_digits_and_OPERATOR
         validate_operator(symbol=operator, arr=stores_digits_and_operator,
                           should_sign_num=want_two_operator, err=syntax_error)
-        if want_two_operator:
-            want_two_operator = False
 
     elif is_del[0] == 'del':
         print(stores_digits_and_operator)

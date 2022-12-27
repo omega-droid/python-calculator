@@ -2,7 +2,6 @@ def check_operator(symbol, arr, should_sign_num, err):
     if len(arr) == 1 and symbol in ('-', '+') and \
             arr[0] in ('-', '+'):
         arr[:] = [symbol]
-        print('hello')
     elif len(arr) == 1 and symbol in ('/', '*') and \
             arr[0] in ('-', '+'):
         err()
@@ -22,3 +21,9 @@ def check_operator(symbol, arr, should_sign_num, err):
                     arr.append(symbol)
                 else:
                     err()
+            elif arr[len(arr) - 1] in ('+', '-'):
+                if symbol in ('+', '-'):
+                    arr[len(arr) - 1] = symbol
+                else:
+                    err()
+
