@@ -1,6 +1,7 @@
 class Node:
     def __init__(self, item):
         self.item = item
+        self.negate = False
         self.next = None
 
 
